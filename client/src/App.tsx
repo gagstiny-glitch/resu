@@ -11,7 +11,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={TemplateSelection} />
-      {/* <Route path="/builder/:id" component={ResumeBuilder} /> */}
+       <Route path="/builder/:id" component={ResumeBuilder} />
       <Route path="/builder" component={ResumeBuilder} />
       <Route component={NotFound} />
     </Switch>
