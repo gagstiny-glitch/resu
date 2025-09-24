@@ -38,6 +38,8 @@ export class MemStorage implements IStorage {
       email: "jane.doe@example.com",
       phone: "+1 (555) 123-4567",
       linkedin: "https://www.linkedin.com/in/janedoe",
+      github: "https://github.com/janedoe",
+      website: "https://janedoe.dev",
       location: "New York, NY",
     },
     experience: [
@@ -56,6 +58,7 @@ export class MemStorage implements IStorage {
         to: "Dec 2019",
         description:
           "Built and maintained a React-based SPA. Improved performance by 30%.",
+        highlights: ["Improved app performance by 30%", "Led UI/UX redesign project", "Mentored 2 junior developers"],
       },
     ],
     education: [
@@ -64,10 +67,33 @@ export class MemStorage implements IStorage {
         degree: "B.Sc. in Computer Science",
         from: "2013",
         to: "2017",
+        gpa: "3.8",
         description: "Graduated with honors, specializing in software engineering.",
       },
     ],
     skills: ["JavaScript", "TypeScript", "Node.js", "React", "Express", "SQL", "Docker"],
+    languages: [
+      { name: "English", level: "Native" },
+      { name: "Spanish", level: "Conversational" },
+      { name: "French", level: "Beginner" },
+    ],
+    certifications: [
+      {
+        title: "AWS Certified Solutions Architect",
+        issuer: "Amazon Web Services",
+        date: "2023",
+        description: "Professional level certification for cloud architecture",
+      },
+    ],
+    references: [
+      {
+        name: "John Smith",
+        position: "Senior Engineering Manager",
+        company: "TechCorp Inc.",
+        phone: "+1 (555) 987-6543",
+        email: "john.smith@techcorp.com",
+      },
+    ],
   };
 
   // Merge incoming data with defaults
@@ -86,6 +112,16 @@ export class MemStorage implements IStorage {
     marginLeft: 20,
     marginRight: 20,
     sidebarWidth: 40,
+    colors: {
+      primary: "#3b82f6",
+      secondary: "#64748b",
+      accent: "#06b6d4",
+      background: "#ffffff",
+      sidebarBackground: "#1e293b",
+      headerTextColor: "#1e293b",
+      bodyTextColor: "#374151",
+      sidebarTextColor: "#ffffff",
+    },
     ...(insertResume.style || {}),
   };
 

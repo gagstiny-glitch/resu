@@ -13,6 +13,11 @@ import TemplateOne from "@/components/resume-templates/template-one";
 import TemplateTwo from "@/components/resume-templates/template-two";
 import TemplateThree from "@/components/resume-templates/template-three";
 import TemplateFour from "@/components/resume-templates/template-four";
+import TemplateFive from "@/components/resume-templates/template-five";
+import TemplateSix from "@/components/resume-templates/template-six";
+import TemplateSeven from "@/components/resume-templates/template-seven";
+import TemplateEight from "@/components/resume-templates/template-eight";
+import TemplateNine from "@/components/resume-templates/template-nine";
 
 // Import sidebar sections
 import BioSection from "@/components/sidebar/bio-section";
@@ -20,9 +25,12 @@ import ContactSection from "@/components/sidebar/contact-section";
 import ExperienceSection from "@/components/sidebar/experience-section";
 import EducationSection from "@/components/sidebar/education-section";
 import SkillsSection from "@/components/sidebar/skills-section";
+import LanguagesSection from "@/components/sidebar/languages-section";
+import CertificationsSection from "@/components/sidebar/certifications-section";
+import ReferencesSection from "@/components/sidebar/references-section";
 import StyleSection from "@/components/sidebar/style-section";
 
-type SectionType = "bio" | "contact" | "experience" | "education" | "skills" | "customize";
+type SectionType = "bio" | "contact" | "experience" | "education" | "skills" | "languages" | "certifications" | "references" | "customize";
 
 export default function ResumeBuilder() {
   const [match, params] = useRoute("/builder/:id?");
@@ -35,6 +43,9 @@ export default function ResumeBuilder() {
     experience: [],
     education: [],
     skills: [],
+    languages: [],
+    certifications: [],
+    references: [],
   });
   const [styleSettings, setStyleSettings] = useState<StyleSettings>({
     headerFontSize: 18,
@@ -46,6 +57,16 @@ export default function ResumeBuilder() {
     marginLeft: 20,
     marginRight: 20,
     sidebarWidth: 40,
+    colors: {
+      primary: "#3b82f6",
+      secondary: "#64748b",
+      accent: "#06b6d4",
+      background: "#ffffff",
+      sidebarBackground: "#1e293b",
+      headerTextColor: "#1e293b",
+      bodyTextColor: "#374151",
+      sidebarTextColor: "#ffffff",
+    },
   });
   const [templateId, setTemplateId] = useState("1");
   const { toast } = useToast();
@@ -150,6 +171,16 @@ export default function ResumeBuilder() {
         return <TemplateThree {...props} />;
       case "4":
         return <TemplateFour {...props} />;
+      case "5":
+        return <TemplateFive {...props} />;
+      case "6":
+        return <TemplateSix {...props} />;
+      case "7":
+        return <TemplateSeven {...props} />;
+      case "8":
+        return <TemplateEight {...props} />;
+      case "9":
+        return <TemplateNine {...props} />;
       default:
         return <TemplateOne {...props} />;
     }
@@ -169,6 +200,12 @@ export default function ResumeBuilder() {
         return <EducationSection {...commonProps} />;
       case "skills":
         return <SkillsSection {...commonProps} />;
+      case "languages":
+        return <LanguagesSection {...commonProps} />;
+      case "certifications":
+        return <CertificationsSection {...commonProps} />;
+      case "references":
+        return <ReferencesSection {...commonProps} />;
       case "customize":
         return <StyleSection style={styleSettings} onStyleChange={handleStyleChange} />;
       default:
@@ -234,6 +271,11 @@ export default function ResumeBuilder() {
                   <SelectItem value="2">Modern Clean</SelectItem>
                   <SelectItem value="3">Executive</SelectItem>
                   <SelectItem value="4">Corporate</SelectItem>
+                  <SelectItem value="5">Mariana Anderson</SelectItem>
+                  <SelectItem value="6">Francisco Andrade</SelectItem>
+                  <SelectItem value="7">Lorna Alvarado</SelectItem>
+                  <SelectItem value="8">Richard Sanchez</SelectItem>
+                  <SelectItem value="9">Olivia Wilson</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -246,6 +288,9 @@ export default function ResumeBuilder() {
                 { key: "experience" as const, label: "Experience" },
                 { key: "education" as const, label: "Education" },
                 { key: "skills" as const, label: "Skills" },
+                { key: "languages" as const, label: "Languages" },
+                { key: "certifications" as const, label: "Certs" },
+                { key: "references" as const, label: "References" },
                 { key: "customize" as const, label: "Style" },
               ].map(({ key, label }) => (
                 <button

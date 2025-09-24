@@ -33,6 +33,36 @@ const templates = [
     description: "Blue header with sidebar layout",
     preview: "Template preview with blue header section and dark sidebar",
   },
+  {
+    id: "5",
+    name: "Mariana Anderson",
+    description: "Professional with timeline design",
+    preview: "Template with dark sidebar and timeline experience layout",
+  },
+  {
+    id: "6",
+    name: "Francisco Andrade",
+    description: "Blue header with clean layout",
+    preview: "Template with blue header and light sidebar",
+  },
+  {
+    id: "7",
+    name: "Lorna Alvarado",
+    description: "Light modern with circular photo",
+    preview: "Template with light sidebar and circular profile image",
+  },
+  {
+    id: "8",
+    name: "Richard Sanchez",
+    description: "Dark professional with timeline",
+    preview: "Template with dark sidebar and professional timeline",
+  },
+  {
+    id: "9",
+    name: "Olivia Wilson",
+    description: "Clean single column layout",
+    preview: "Simple single column template with blue accents",
+  },
 ];
 
 export default function TemplateSelection() {
@@ -72,11 +102,26 @@ export default function TemplateSelection() {
         name: "",
         title: "",
         summary: "",
+            github: "",
+            website: "",
         contact: {
           email: "",
           phone: "",
           linkedin: "",
           location: "",
+          languages: [],
+          certifications: [],
+          references: [],
+          colors: {
+            primary: "#3b82f6",
+            secondary: "#64748b",
+            accent: "#06b6d4",
+            background: "#ffffff",
+            sidebarBackground: "#1e293b",
+            headerTextColor: "#1e293b",
+            bodyTextColor: "#374151",
+            sidebarTextColor: "#ffffff",
+          },
         },
         experience: [],
         education: [],
@@ -123,7 +168,7 @@ export default function TemplateSelection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {templates.map((template) => (
             <Card
               key={template.id}
@@ -193,6 +238,86 @@ export default function TemplateSelection() {
                         </div>
                       </div>
                       <div className="absolute left-4 top-4 w-16 h-12 bg-white rounded"></div>
+                    </>
+                  )}
+                  {template.id === "5" && (
+                    <>
+                      <div className="absolute left-0 top-0 w-2/5 h-full bg-slate-600"></div>
+                      <div className="absolute right-0 top-0 w-3/5 h-full bg-white p-4">
+                        <div className="w-full h-4 bg-slate-200 rounded mb-2"></div>
+                        <div className="w-3/4 h-3 bg-blue-200 rounded mb-4"></div>
+                        <div className="space-y-2">
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                            <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                          </div>
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                            <div className="w-3/4 h-2 bg-slate-200 rounded"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute left-4 top-8 w-20 h-20 bg-slate-200 rounded-full border-4 border-white"></div>
+                    </>
+                  )}
+                  {template.id === "6" && (
+                    <>
+                      <div className="absolute top-0 left-0 w-full h-16 bg-blue-600"></div>
+                      <div className="absolute left-0 top-20 w-2/5 h-4/5 bg-slate-100"></div>
+                      <div className="absolute right-0 top-20 w-3/5 h-4/5 bg-white p-4">
+                        <div className="space-y-2 mt-4">
+                          <div className="w-full h-2 bg-slate-200 rounded"></div>
+                          <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
+                      <div className="absolute left-4 top-4 w-16 h-8 bg-white rounded"></div>
+                    </>
+                  )}
+                  {template.id === "7" && (
+                    <>
+                      <div className="absolute left-0 top-0 w-2/5 h-full bg-slate-100"></div>
+                      <div className="absolute right-0 top-0 w-3/5 h-full bg-white p-4">
+                        <div className="space-y-2 mt-8">
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                            <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                          </div>
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                            <div className="w-3/4 h-2 bg-slate-200 rounded"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute left-4 top-8 w-20 h-20 bg-slate-200 rounded-full border-4 border-white"></div>
+                    </>
+                  )}
+                  {template.id === "8" && (
+                    <>
+                      <div className="absolute left-0 top-0 w-2/5 h-full bg-slate-700"></div>
+                      <div className="absolute right-0 top-0 w-3/5 h-full bg-white p-4">
+                        <div className="w-full h-4 bg-slate-200 rounded mb-2"></div>
+                        <div className="w-full h-1 bg-blue-500 rounded mb-4"></div>
+                        <div className="space-y-2">
+                          <div className="w-full h-2 bg-slate-200 rounded"></div>
+                          <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
+                      <div className="absolute left-4 top-8 w-16 h-16 bg-slate-200 rounded-full"></div>
+                    </>
+                  )}
+                  {template.id === "9" && (
+                    <>
+                      <div className="absolute top-0 left-0 w-full h-20 bg-white border-b-2 border-blue-600 p-4">
+                        <div className="w-3/4 h-4 bg-blue-600 rounded mb-2"></div>
+                        <div className="w-1/2 h-2 bg-slate-300 rounded"></div>
+                      </div>
+                      <div className="absolute top-24 left-0 w-full h-3/4 bg-white p-4">
+                        <div className="space-y-3">
+                          <div className="w-full h-2 bg-slate-200 rounded"></div>
+                          <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                          <div className="w-full h-2 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
                     </>
                   )}
                 </div>
