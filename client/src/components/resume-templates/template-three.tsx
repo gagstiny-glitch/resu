@@ -39,7 +39,7 @@ export default function TemplateThree({ data, style }: TemplateProps) {
                 <div><i className="fas fa-envelope mr-2 text-gray-400"></i><span data-testid="text-email">{data.contact.email}</span></div>
               )}
               {data.contact.linkedin && (
-                <div><i className="fas fa-linkedin mr-2 text-gray-400"></i><span data-testid="text-linkedin">{data.contact.linkedin.replace('https://', '').replace('http://', '')}</span></div>
+                <div><i className="fas fa-linkedin mr-2 text-gray-400"></i><span data-testid="text-linkedin">{data.contact.linkedin.replace('https://', '').replace(\'http://', '')}</span></div>
               )}
               {data.contact.location && (
                 <div><i className="fas fa-map-marker-alt mr-2 text-gray-400"></i><span data-testid="text-location">{data.contact.location}</span></div>
