@@ -63,6 +63,18 @@ const templates = [
     description: "Clean single column layout",
     preview: "Simple single column template with blue accents",
   },
+  {
+    id: "10",
+    name: "Lorna Alvarado Classic",
+    description: "Elegant design with circular photo",
+    preview: "Classic layout with warm brown accents and professional styling",
+  },
+  {
+    id: "11",
+    name: "Korina Villanueva",
+    description: "Modern dark header design",
+    preview: "Professional template with dark header and structured layout",
+  },
 ];
 
 export default function TemplateSelection() {
@@ -318,6 +330,33 @@ export default function TemplateSelection() {
                           <div className="w-full h-2 bg-slate-200 rounded"></div>
                         </div>
                       </div>
+                    </>
+                  )}
+                  {template.id === "10" && (
+                    <>
+                      <div className="absolute left-0 top-0 w-2/5 h-full bg-orange-50"></div>
+                      <div className="absolute right-0 top-0 w-3/5 h-full bg-white p-4">
+                        <div className="w-full h-4 bg-orange-200 rounded mb-2"></div>
+                        <div className="w-3/4 h-3 bg-slate-200 rounded mb-4"></div>
+                        <div className="space-y-2">
+                          <div className="w-full h-2 bg-slate-200 rounded"></div>
+                          <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
+                      <div className="absolute left-4 top-8 w-20 h-20 bg-orange-200 rounded-full border-4 border-white"></div>
+                    </>
+                  )}
+                  {template.id === "11" && (
+                    <>
+                      <div className="absolute top-0 left-0 w-full h-16 bg-slate-700"></div>
+                      <div className="absolute left-0 top-20 w-2/5 h-4/5 bg-white"></div>
+                      <div className="absolute right-0 top-20 w-3/5 h-4/5 bg-white p-4">
+                        <div className="space-y-2 mt-4">
+                          <div className="w-full h-2 bg-slate-200 rounded"></div>
+                          <div className="w-4/5 h-2 bg-slate-200 rounded"></div>
+                        </div>
+                      </div>
+                      <div className="absolute left-4 top-4 w-16 h-8 bg-white rounded-full"></div>
                     </>
                   )}
                 </div>

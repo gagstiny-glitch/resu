@@ -58,36 +58,57 @@ export default function TemplateFour({ data, style }: TemplateProps) {
           </div>
         )}
 
-        {/* Languages
-        {data.languages.length > 0 && (
+        {/* Languages */}
+        {data.languages && data.languages.length > 0 && (
           <div className="w-full mb-6">
             <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 border-b pb-1">
               Languages
             </h3>
             <ul className="text-xs space-y-1">
               {data.languages.map((lang, i) => (
-                <li key={i}>{lang}</li>
+                <li key={i}>{lang.name} - {lang.level}</li>
               ))}
             </ul>
           </div>
-        )} */}
+        )}
 
-        {/* Reference */}
-        {/* {data.reference && (
+        {/* Certifications */}
+        {data.certifications && data.certifications.length > 0 && (
           <div className="w-full">
             <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 border-b pb-1">
-              Reference
+              Certifications
             </h3>
-            <p className="text-xs font-medium">{data.reference.name}</p>
-            <p className="text-xs text-gray-600">{data.reference.position}</p>
-            {data.reference.phone && (
-              <p className="text-xs">📞 {data.reference.phone}</p>
-            )}
-            {data.reference.email && (
-              <p className="text-xs">✉️ {data.reference.email}</p>
-            )}
+            <div className="space-y-2">
+              {data.certifications.map((cert, i) => (
+                <div key={i} className="text-xs">
+                  <p className="font-medium">{cert.title}</p>
+                  <p className="text-gray-600">{cert.issuer}</p>
+                  <p className="text-gray-500">{cert.date}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        )} */}
+        )}
+
+        {/* References */}
+        {data.references && data.references.length > 0 && (
+          <div className="w-full mt-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 border-b pb-1">
+              References
+            </h3>
+            <div className="space-y-2">
+              {data.references.slice(0, 1).map((ref, i) => (
+                <div key={i}>
+                  <p className="text-xs font-medium">{ref.name}</p>
+                  <p className="text-xs text-gray-600">{ref.position}</p>
+                  {ref.company && <p className="text-xs text-gray-600">{ref.company}</p>}
+                  {ref.phone && <p className="text-xs">📞 {ref.phone}</p>}
+                  {ref.email && <p className="text-xs">✉️ {ref.email}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </aside>
 
       {/* Main Content */}

@@ -67,6 +67,42 @@ export default function TemplateThree({ data, style }: TemplateProps) {
             </div>
           </div>
         )}
+
+        {/* Languages */}
+        {data.languages && data.languages.length > 0 && (
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 text-gray-300">Languages</h3>
+            <div className="space-y-2">
+              {data.languages.map((lang, index) => (
+                <div key={index} className="text-xs">
+                  <div className="flex justify-between mb-1">
+                    <span>{lang.name}</span>
+                    <span className="text-gray-400">{lang.level}</span>
+                  </div>
+                  <div className="w-full bg-gray-600 rounded-full h-1">
+                    <div className="bg-white h-1 rounded-full" style={{ width: '75%' }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Certifications */}
+        {data.certifications && data.certifications.length > 0 && (
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 text-gray-300">Certifications</h3>
+            <div className="space-y-2">
+              {data.certifications.map((cert, index) => (
+                <div key={index} className="text-xs">
+                  <div className="font-medium">{cert.title}</div>
+                  <div className="text-gray-400">{cert.issuer}</div>
+                  <div className="text-gray-400">{cert.date}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Main Content */}
@@ -134,6 +170,29 @@ export default function TemplateThree({ data, style }: TemplateProps) {
                     {edu.description && (
                       <p className="text-xs text-gray-700 leading-relaxed mt-1">{edu.description}</p>
                     )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* References */}
+        {data.references && data.references.length > 0 && (
+          <div>
+            <h3 className="text-lg font-bold text-gray-800 mb-4 border-b-2 border-gray-300 pb-2">
+              References
+            </h3>
+            <div className="space-y-4">
+              {data.references.map((ref, index) => (
+                <div key={index} className="flex items-start" data-testid={`reference-${index}`}>
+                  <div className="w-3 h-3 bg-gray-400 rounded-full mr-4 mt-2"></div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-800">{ref.name}</h4>
+                    <p className="text-xs text-gray-600">{ref.position}</p>
+                    {ref.company && <p className="text-xs text-gray-600">{ref.company}</p>}
+                    {ref.phone && <p className="text-xs text-gray-600">{ref.phone}</p>}
+                    {ref.email && <p className="text-xs text-gray-600">{ref.email}</p>}
                   </div>
                 </div>
               ))}

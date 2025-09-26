@@ -18,6 +18,8 @@ import TemplateSix from "@/components/resume-templates/template-six";
 import TemplateSeven from "@/components/resume-templates/template-seven";
 import TemplateEight from "@/components/resume-templates/template-eight";
 import TemplateNine from "@/components/resume-templates/template-nine";
+import TemplateTen from "@/components/resume-templates/template-ten";
+import TemplateEleven from "@/components/resume-templates/template-eleven";
 
 // Import sidebar sections
 import BioSection from "@/components/sidebar/bio-section";
@@ -159,6 +161,14 @@ export default function ResumeBuilder() {
     setTemplateId(newTemplateId);
   };
 
+  const handleDownloadPDF = () => {
+    window.print();
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
   const renderTemplate = () => {
     const props = { data: resumeData, style: styleSettings };
     
@@ -181,6 +191,10 @@ export default function ResumeBuilder() {
         return <TemplateEight {...props} />;
       case "9":
         return <TemplateNine {...props} />;
+      case "10":
+        return <TemplateTen {...props} />;
+      case "11":
+        return <TemplateEleven {...props} />;
       default:
         return <TemplateOne {...props} />;
     }
@@ -245,9 +259,21 @@ export default function ResumeBuilder() {
               <Save className="mr-2 h-4 w-4" />
               {updateResumeMutation.isPending ? "Saving..." : "Auto-saved"}
             </Button>
-            <Button size="sm" data-testid="button-download">
+            <Button 
+              size="sm" 
+              onClick={handleDownloadPDF}
+              data-testid="button-download"
+            >
               <Download className="mr-2 h-4 w-4" />
               Download PDF
+            </Button>
+            <Button 
+              variant="outline"
+              size="sm" 
+              onClick={handlePrint}
+              data-testid="button-print"
+            >
+              Print
             </Button>
           </div>
         </div>
@@ -276,6 +302,8 @@ export default function ResumeBuilder() {
                   <SelectItem value="7">Lorna Alvarado</SelectItem>
                   <SelectItem value="8">Richard Sanchez</SelectItem>
                   <SelectItem value="9">Olivia Wilson</SelectItem>
+                  <SelectItem value="10">Lorna Alvarado Classic</SelectItem>
+                  <SelectItem value="11">Korina Villanueva</SelectItem>
                 </SelectContent>
               </Select>
             </div>

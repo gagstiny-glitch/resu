@@ -61,6 +61,39 @@ export default function TemplateTwo({ data, style }: TemplateProps) {
             </div>
           </div>
         )}
+
+        {/* Languages */}
+        {data.languages && data.languages.length > 0 && (
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 text-gray-800">Languages</h3>
+            <div className="space-y-1">
+              {data.languages.map((lang, index) => (
+                <div key={index} className="text-xs text-gray-700">
+                  <div className="flex justify-between">
+                    <span>{lang.name}</span>
+                    <span className="text-gray-500">({lang.level})</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Certifications */}
+        {data.certifications && data.certifications.length > 0 && (
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 text-gray-800">Certifications</h3>
+            <div className="space-y-2">
+              {data.certifications.map((cert, index) => (
+                <div key={index} className="text-xs text-gray-700">
+                  <div className="font-medium">{cert.title}</div>
+                  <div className="text-gray-600">{cert.issuer}</div>
+                  <div className="text-gray-500">{cert.date}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Main Content */}
@@ -121,6 +154,26 @@ export default function TemplateTwo({ data, style }: TemplateProps) {
                   {edu.description && (
                     <p className="text-xs text-gray-700 leading-relaxed">{edu.description}</p>
                   )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* References */}
+        {data.references && data.references.length > 0 && (
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide mb-3 text-gray-800 border-b-2 border-blue-600 pb-1">
+              References
+            </h3>
+            <div className="grid grid-cols-2 gap-4">
+              {data.references.map((ref, index) => (
+                <div key={index} data-testid={`reference-${index}`}>
+                  <h4 className="text-sm font-semibold text-gray-800">{ref.name}</h4>
+                  <p className="text-xs text-gray-600">{ref.position}</p>
+                  {ref.company && <p className="text-xs text-gray-600">{ref.company}</p>}
+                  {ref.phone && <p className="text-xs text-gray-600">{ref.phone}</p>}
+                  {ref.email && <p className="text-xs text-gray-600">{ref.email}</p>}
                 </div>
               ))}
             </div>

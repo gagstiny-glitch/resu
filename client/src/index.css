@@ -182,3 +182,42 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .a4-preview, .a4-preview * {
+    visibility: visible;
+  }
+  
+  .a4-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Hide navigation and sidebar when printing */
+  nav, .sidebar, .section-editor {
+    display: none !important;
+  }
+  
+  /* Ensure proper page breaks */
+  .resume-template {
+    page-break-inside: avoid;
+  }
+  
+  /* Adjust colors for print */
+  .resume-template * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
